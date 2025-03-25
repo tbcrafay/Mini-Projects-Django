@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic.list import ListView
+from .models import Task
 # Create your views here.
 
 
 
-def todo_list(request):
-    return HttpResponse("To-Do List") # Or your template rendering logic.
+class TaskList(ListView):
+# return HttpResponse("To-Do List")
+    model = Task
+    context_object_name = 'tasks'
